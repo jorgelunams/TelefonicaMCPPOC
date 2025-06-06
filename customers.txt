@@ -1,0 +1,302 @@
+[  
+  {  
+    "customer_id": "1001",  
+    "nombre": "Alicia Sánchez",  
+    "telefono": "+56 9 600 123 456",  
+    "plan_tarifario": "Datos Ilimitados",  
+    "detalles_plan": {  
+      "minutos": "Ilimitados",  
+      "data_gb": "Ilimitados",  
+      "sms": "Ilimitados"  
+    },  
+    "precio_clp": 29990,  
+    "correo_electronico": "alicia.sanchez@example.cl",  
+    "direccion": "Calle Principal 123, Santiago, Chile",  
+    "codigo_postal": "8320000",  
+    "acceso_internet": {  
+      "proveedor": "Telefónica Chile",  
+      "tipo_conexion": "Fibra Óptica",  
+      "router": {  
+        "modelo": "TP-Link Archer C7",  
+        "numero_serial": "SN123456789"  
+      },  
+      "problemas": [  
+        {  
+          "tipo_problema": "Conexión intermitente",  
+          "fecha_reportada": "2023-10-01",  
+          "estado": "En proceso"  
+        },  
+        {  
+          "tipo_problema": "Velocidad baja",  
+          "fecha_reportada": "2023-09-20",  
+          "estado": "Resuelto"  
+        },  
+        {  
+          "tipo_problema": "Caída total del servicio",  
+          "fecha_reportada": "2023-10-10",  
+          "estado": "En proceso"  
+        }  
+      ],  
+      "ultima_prueba_velocidad": {  
+        "velocidad_descarga_mbps": 100,  
+        "velocidad_subida_mbps": 20,  
+        "fecha_prueba": "2023-10-05"  
+      }  
+    },  
+    "facturacion": {  
+      "ciclo_facturacion": "Mensual",  
+      "proxima_fecha_facturacion": "2023-11-01",  
+      "fecha_ultimo_pago": "2023-10-01",  
+      "metodo_pago": "Tarjeta de crédito",  
+      "monto_debido": 29990,  
+      "estado_pago": "Pagado",  
+      "facturacion_internet": {  
+        "monto_usado": 0,  
+        "detalle": "Uso ilimitado bajo plan"  
+      }  
+    }  
+  },  
+  {  
+    "customer_id": "1002",  
+    "nombre": "Roberto González",  
+    "telefono": "+56 9 654 321 987",  
+    "plan_tarifario": "Plan Familiar",  
+    "detalles_plan": {  
+      "minutos": 2000,  
+      "data_gb": 40,  
+      "sms": 500  
+    },  
+    "precio_clp": 49990,  
+    "correo_electronico": "roberto.gonzalez@example.cl",  
+    "direccion": "Avenida Libertador 456, Valparaíso, Chile",  
+    "codigo_postal": "7500000",  
+    "acceso_internet": {  
+      "proveedor": "Telefónica Chile",  
+      "tipo_conexion": "ADSL",  
+      "router": {  
+        "modelo": "Huawei HG8245H",  
+        "numero_serial": "SN987654321"  
+      },  
+      "problemas": [  
+        {  
+          "tipo_problema": "Falla en el servicio",  
+          "fecha_reportada": "2023-09-15",  
+          "estado": "Resuelto"  
+        },  
+        {  
+          "tipo_problema": "Interferencia en la señal",  
+          "fecha_reportada": "2023-10-02",  
+          "estado": "En proceso"  
+        },  
+        {  
+          "tipo_problema": "Problemas con la velocidad",  
+          "fecha_reportada": "2023-10-09",  
+          "estado": "En proceso"  
+        }  
+      ],  
+      "ultima_prueba_velocidad": {  
+        "velocidad_descarga_mbps": 25,  
+        "velocidad_subida_mbps": 5,  
+        "fecha_prueba": "2023-10-04"  
+      }  
+    },  
+    "facturacion": {  
+      "ciclo_facturacion": "Mensual",  
+      "proxima_fecha_facturacion": "2023-11-01",  
+      "fecha_ultimo_pago": "2023-10-01",  
+      "metodo_pago": "Transferencia bancaria",  
+      "monto_debido": 49990,  
+      "estado_pago": "Pagado",  
+      "facturacion_internet": {  
+        "monto_usado": 0,  
+        "detalle": "Uso bajo plan, datos no excedidos"  
+      }  
+    }  
+  },  
+  {  
+    "customer_id": "1003",  
+    "nombre": "Carla Pérez",  
+    "telefono": "+56 9 789 123 456",  
+    "plan_tarifario": "Prepago",  
+    "detalles_plan": {  
+      "minutos": 300,  
+      "data_gb": 5,  
+      "sms": 100  
+    },  
+    "precio_clp": 7990,  
+    "correo_electronico": "carla.perez@example.cl",  
+    "direccion": "Calle Secundaria 789, Concepción, Chile",  
+    "codigo_postal": "4030000",  
+    "acceso_internet": {  
+      "proveedor": "Telefónica Chile",  
+      "tipo_conexion": "4G LTE",  
+      "router": {  
+        "modelo": "ZTE MF283+",  
+        "numero_serial": "SN1122334455"  
+      },  
+      "problemas": [  
+        {  
+          "tipo_problema": "Señal débil",  
+          "fecha_reportada": "2023-09-25",  
+          "estado": "En proceso"  
+        },  
+        {  
+          "tipo_problema": "Conexión lenta",  
+          "fecha_reportada": "2023-10-07",  
+          "estado": "Resuelto"  
+        }  
+      ],  
+      "ultima_prueba_velocidad": {  
+        "velocidad_descarga_mbps": 10,  
+        "velocidad_subida_mbps": 2,  
+        "fecha_prueba": "2023-10-03"  
+      }  
+    },  
+    "facturacion": {  
+      "ciclo_facturacion": "Recarga",  
+      "proxima_fecha_facturacion": "2023-10-10",  
+      "fecha_ultimo_pago": "2023-10-01",  
+      "metodo_pago": "Pago en efectivo",  
+      "monto_debido": 7990,  
+      "estado_pago": "Pagado",  
+      "facturacion_internet": {  
+        "monto_usado": 3000,  
+        "detalle": "Uso de datos excedido, recarga adicional"  
+      }  
+    }  
+  },  
+  {  
+    "customer_id": "1004",  
+    "nombre": "José Martínez",  
+    "telefono": "+56 9 999 123 456",  
+    "plan_tarifario": "Fibra Básica",  
+    "detalles_plan": {  
+      "minutos": "Ilimitados",  
+      "data_gb": 20,  
+      "sms": "Ilimitados"  
+    },  
+    "precio_clp": 24990,  
+    "correo_electronico": "jose.martinez@example.cl",  
+    "direccion": "Calle del Sol 45, Antofagasta, Chile",  
+    "codigo_postal": "1400000",  
+    "acceso_internet": {  
+      "proveedor": "Telefónica Chile",  
+      "tipo_conexion": "Fibra Óptica",  
+      "router": {  
+        "modelo": "TP-Link Archer C6",  
+        "numero_serial": "SN2233445566"  
+      },  
+      "problemas": [],  
+      "ultima_prueba_velocidad": {  
+        "velocidad_descarga_mbps": 306.86,  
+        "velocidad_subida_mbps": 100,  
+        "fecha_prueba": "2023-10-05"  
+      }  
+    },  
+    "facturacion": {  
+      "ciclo_facturacion": "Mensual",  
+      "proxima_fecha_facturacion": "2023-11-01",  
+      "fecha_ultimo_pago": "2023-10-01",  
+      "metodo_pago": "Tarjeta de débito",  
+      "monto_debido": 24990,  
+      "estado_pago": "Pagado",  
+      "facturacion_internet": {  
+        "monto_usado": 0,  
+        "detalle": "Uso ilimitado bajo plan"  
+      }  
+    }  
+  },  
+  {  
+    "customer_id": "1005",  
+    "nombre": "María Elena Rojas",  
+    "telefono": "+56 9 888 123 456",  
+    "plan_tarifario": "Fibra Premium",  
+    "detalles_plan": {  
+      "minutos": "Ilimitados",  
+      "data_gb": "Ilimitados",  
+      "sms": "Ilimitados"  
+    },  
+    "precio_clp": 39990,  
+    "correo_electronico": "maria.rojas@example.cl",  
+    "direccion": "Calle Libertad 23, María Elena, Chile",  
+    "codigo_postal": "8320000",  
+    "acceso_internet": {  
+      "proveedor": "Telefónica Chile",  
+      "tipo_conexion": "Fibra Óptica",  
+      "router": {  
+        "modelo": "Netgear Nighthawk RAX40",  
+        "numero_serial": "SN3344556677"  
+      },  
+      "problemas": [],  
+      "ultima_prueba_velocidad": {  
+        "velocidad_descarga_mbps": 398.53,  
+        "velocidad_subida_mbps": 150,  
+        "fecha_prueba": "2023-10-05"  
+      }  
+    },  
+    "facturacion": {  
+      "ciclo_facturacion": "Mensual",  
+      "proxima_fecha_facturacion": "2023-11-01",  
+      "fecha_ultimo_pago": "2023-10-01",  
+      "metodo_pago": "Tarjeta de crédito",  
+      "monto_debido": 39990,  
+      "estado_pago": "Pagado",  
+      "facturacion_internet": {  
+        "monto_usado": 0,  
+        "detalle": "Uso ilimitado bajo plan"  
+      }  
+    }  
+  },  
+  {  
+    "customer_id": "1006",  
+    "nombre": "Sofía López",  
+    "telefono": "+56 9 777 123 456",  
+    "plan_tarifario": "Fibra Avanzada",  
+    "detalles_plan": {  
+      "minutos": "Ilimitados",  
+      "data_gb": 100,  
+      "sms": "Ilimitados"  
+    },  
+    "precio_clp": 49990,  
+    "correo_electronico": "sofia.lopez@example.cl",  
+    "direccion": "Calle Nueva 1, Tiltil, Chile",  
+    "codigo_postal": "8320000",  
+    "acceso_internet": {  
+      "proveedor": "Telefónica Chile",  
+      "tipo_conexion": "Fibra Óptica",  
+      "router": {  
+        "modelo": "ASUS RT-AC66U",  
+        "numero_serial": "SN5566778899"  
+      },  
+      "problemas": [  
+        {  
+          "tipo_problema": "Interferencia en la señal",  
+          "fecha_reportada": "2023-10-01",  
+          "estado": "Resuelto"  
+        },  
+        {  
+          "tipo_problema": "Conexión inestable",  
+          "fecha_reportada": "2023-10-06",  
+          "estado": "En proceso"  
+        }  
+      ],  
+      "ultima_prueba_velocidad": {  
+        "velocidad_descarga_mbps": 340.63,  
+        "velocidad_subida_mbps": 200,  
+        "fecha_prueba": "2023-10-05"  
+      }  
+    },  
+    "facturacion": {  
+      "ciclo_facturacion": "Mensual",  
+      "proxima_fecha_facturacion": "2023-11-01",  
+      "fecha_ultimo_pago": "2023-10-01",  
+      "metodo_pago": "Transferencia bancaria",  
+      "monto_debido": 49990,  
+      "estado_pago": "Pagado",  
+      "facturacion_internet": {  
+        "monto_usado": 0,  
+        "detalle": "Uso ilimitado bajo plan"  
+      }  
+    }  
+  }  
+]  

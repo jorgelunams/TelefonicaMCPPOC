@@ -1,0 +1,3 @@
+python-dotenv
+semantic-kernel[mcp]
+mcp
