@@ -1,3 +1,8 @@
 python-dotenv
 semantic-kernel[mcp]
 mcp
+beautifulsoup4
+requests
+azure-functions
+azure-functions-worker
+nest-asyncio

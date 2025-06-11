@@ -1,61 +1,71 @@
 import azure.functions as func
-import datetime
-import json
 import logging
-import asyncio
+import json
 import nest_asyncio
-from customer_care_agent_client import agent_care
+from customer_care_agent_mgr import process_question
+
+# Configure logging
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger('customer_care_func')
 
 app = func.FunctionApp()
 
-# Enable CORS for all origins
-app.http_cors = {
-    "allowed_origins": ["*"],
-    "allowed_methods": ["*"],
-    "allowed_headers": ["*"]
-}
-
+# Apply nest_asyncio to allow nested event loops
 nest_asyncio.apply()
 
-@app.route(route="customer_care_func/{pregunta}", auth_level=func.AuthLevel.ANONYMOUS)
-def customer_care_func(req: func.HttpRequest) -> func.HttpResponse:
-    logging.info('Python HTTP trigger function processed a request.')
-
-    # Get the question from the URL path parameter
-    pregunta = req.route_params.get('pregunta')
-    if not pregunta:
-        return func.HttpResponse(
-            "Missing 'pregunta' in URL path.", status_code=400
-        )
-
-    # Call agent_care from customer_care_agent_client.py and pass the question as an argument
-    try:
-        answer = asyncio.get_event_loop().run_until_complete(agent_care(pregunta))
-        if answer is None:
-            answer = ""
-    except Exception as e:
-        return func.HttpResponse(
-            f"Error calling agent_care(): {str(e)}", status_code=500, mimetype="text/html"
-        )
-
-    # Si la respuesta ya es HTML, devuélvela tal cual
-    if answer.strip().startswith("<!DOCTYPE html>") or answer.strip().startswith("<html"):
-        return func.HttpResponse(
-            answer,
-            mimetype="text/html"
-        )
-
-    # Si no es HTML, envuélvela en un HTML simple
-    html = f"""
-    <html>
-        <head><title>Respuesta del Agente</title></head>
-        <body>
-            <h2>Respuesta:</h2>
-            <div style='white-space: pre-wrap; font-family: monospace;'>{answer}</div>
-        </body>
-    </html>
+@app.route(route="api/customer-care/{imsi}/{pregunta}", auth_level=func.AuthLevel.ANONYMOUS, methods=['GET'])
+async def customer_care_func(req: func.HttpRequest) -> func.HttpResponse:
     """
-    return func.HttpResponse(
-        html,
-        mimetype="text/html"
-    )
+    Azure Function entry point for customer care service.
+    Accepts GET requests with IMSI and question as part of the URL path.
+    """
+    logger.info('Function triggered with request: %s', req.url)
+    
+    try:
+        # Get IMSI and question from route parameters
+        imsi = req.route_params.get('imsi')
+        question = req.route_params.get('pregunta')
+        
+        if not imsi:
+            logger.error('Missing imsi parameter in URL path')
+            return func.HttpResponse(
+                json.dumps({"error": "Missing IMSI parameter in URL path"}),
+                mimetype="application/json",
+                status_code=400
+            )
+        
+        if not question:
+            logger.error('Missing pregunta parameter in URL path')
+            return func.HttpResponse(
+                json.dumps({"error": "Missing question parameter in URL path"}),
+                mimetype="application/json",
+                status_code=400
+            )
+        
+        # Process the question with IMSI
+        logger.info('Processing question: %s with IMSI: %s', question, imsi)
+        answer = await process_question(question, imsi)
+        logger.info('Received answer of length: %d', len(str(answer)) if answer else 0)
+        
+        if answer is None:
+            logger.warning('Received None answer from agent')
+            return func.HttpResponse(
+                json.dumps({"error": "No answer was generated"}),
+                mimetype="application/json",
+                status_code=500
+            )
+        
+        # Return successful response
+        return func.HttpResponse(
+            json.dumps({"answer": answer}),
+            mimetype="application/json",
+            status_code=200
+        )
+
+    except Exception as e:
+        logger.error('Error processing request: %s', str(e), exc_info=True)
+        return func.HttpResponse(
+            json.dumps({"error": f"Internal server error: {str(e)}"}),
+            mimetype="application/json",
+            status_code=500
+        )

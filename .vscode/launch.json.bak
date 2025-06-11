@@ -1,0 +1,27 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Debug Azure Functions",
+            "type": "python",
+            "request": "attach",
+            "connect": {
+                "host": "localhost",
+                "port": 5678
+            },
+            "python": "${workspaceFolder}/.venv/Scripts/python.exe",
+            "preLaunchTask": "func: host start",
+            "envFile": "${workspaceFolder}/.env",
+            "env": {
+                "PYTHONPATH": "${workspaceFolder}"
+            }
+        },
+        {
+            "type": "semantic-kernel.skprompt.debugger",
+            "request": "launch",
+            "name": "Semantic Kernel Function Launch",
+            "workspaceFolder": "${workspaceFolder}",
+            "program": "${relativeFile}"
+        }
+    ]
+}

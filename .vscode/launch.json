@@ -1,0 +1,27 @@
+{
+    "version": "2.0",
+    "configurations": [
+        {
+            "name": "Debug Azure Function",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/function_app.py",
+            "args": [],
+            "justMyCode": false,
+            "redirectOutput": true,
+            "console": "internalConsole",
+            "internalConsoleOptions": "neverOpen",
+            "env": {
+                "PYTHONPATH": "${workspaceFolder}",
+                "AZURE_FUNCTIONS_ENVIRONMENT": "Development"
+            }
+        },
+        {
+            "type": "semantic-kernel.skprompt.debugger",
+            "request": "launch",
+            "name": "Semantic Kernel Function Launch",
+            "workspaceFolder": "${workspaceFolder}",
+            "program": "${relativeFile}"
+        }
+    ]
+}

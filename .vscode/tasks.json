@@ -1,0 +1,27 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "pip install (functions)",
+            "type": "shell",
+            "command": "${workspaceFolder}/.venv/Scripts/python -m pip install -r requirements.txt",
+            "options": {
+                "cwd": "${workspaceFolder}"
+            }
+        },
+        {
+            "label": "func: host start",
+            "type": "shell",
+            "command": "${workspaceFolder}/.venv/Scripts/python -m azure.functions.entrytime",
+            "problemMatcher": "$func-python-watch",
+            "isBackground": true,
+            "options": {
+                "cwd": "${workspaceFolder}",
+                "env": {
+                    "PYTHONPATH": "${workspaceFolder}"
+                }
+            },
+            "dependsOn": "pip install (functions)"
+        }
+    ]
+}
